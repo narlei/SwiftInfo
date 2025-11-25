@@ -39,7 +39,7 @@ public final class DLHandle {
     }
 }
 
-public struct DLOpenFlags: RawRepresentable, OptionSet {
+public struct DLOpenFlags: RawRepresentable, OptionSet, Sendable {
     public static let lazy: DLOpenFlags = DLOpenFlags(rawValue: RTLD_LAZY)
     public static let now: DLOpenFlags = DLOpenFlags(rawValue: RTLD_NOW)
     public static let local: DLOpenFlags = DLOpenFlags(rawValue: RTLD_LOCAL)

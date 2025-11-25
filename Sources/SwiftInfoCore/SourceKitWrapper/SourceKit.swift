@@ -11,11 +11,12 @@
 //===----------------------------------------------------------------------===//
 
 import sourcekitd
+import Darwin
 
 // Adapted from SourceKit-LSP.
 
 /// A wrapper for accessing the API of a sourcekitd library loaded via `dlopen`.
-open class SourceKit {
+open class SourceKit: @unchecked Sendable {
     /// The path to the sourcekitd dylib.
     public let path: String
 
@@ -448,7 +449,7 @@ public struct sourcekitd_values {
     }
 }
 
-public final class SKRequestDictionary {
+public final class SKRequestDictionary: @unchecked Sendable {
     let dict: sourcekitd_object_t?
     let sourcekitd: SourceKit
 
@@ -496,7 +497,7 @@ public final class SKRequestDictionary {
     }
 }
 
-final class SKRequestArray {
+final class SKRequestArray: @unchecked Sendable {
     let array: sourcekitd_object_t?
     let sourcekitd: SourceKit
 
@@ -514,7 +515,7 @@ final class SKRequestArray {
     }
 }
 
-public final class SKResponse {
+public final class SKResponse: @unchecked Sendable {
     let response: sourcekitd_response_t?
     let sourcekitd: SourceKit
 
@@ -542,7 +543,7 @@ public final class SKResponse {
     }
 }
 
-public final class SKResponseDictionary {
+public final class SKResponseDictionary: @unchecked Sendable {
     public let dict: sourcekitd_variant_t
     public let resp: SKResponse
     public var sourcekitd: SourceKit { return resp.sourcekitd }
@@ -569,7 +570,7 @@ public final class SKResponseDictionary {
     }
 }
 
-final class SKResponseArray {
+final class SKResponseArray: @unchecked Sendable {
     let array: sourcekitd_variant_t
     let resp: SKResponse
     var sourcekitd: SourceKit { return resp.sourcekitd }

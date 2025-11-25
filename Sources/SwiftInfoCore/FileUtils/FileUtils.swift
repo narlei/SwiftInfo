@@ -5,13 +5,13 @@ public struct FileUtils {
     static let supportedInfofilePaths = ["./", "../", "../../", "../../../"]
 
     /// The path to the Xcode build log.
-    public static var buildLogFilePath = ""
+    nonisolated(unsafe) public static var buildLogFilePath = ""
 
     /// The path to the Xcode test log.
-    public static var testLogFilePath = ""
+    nonisolated(unsafe) public static var testLogFilePath = ""
 
     /// The path to the Buck log.
-    public static var buckLogFilePath = ""
+    nonisolated(unsafe) public static var buckLogFilePath = ""
 
     let outputFileName = "SwiftInfoOutput.json"
     let infofileName = "Infofile.swift"

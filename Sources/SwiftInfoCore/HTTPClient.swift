@@ -1,6 +1,6 @@
 import Foundation
 
-public final class HTTPClient {
+public final class HTTPClient: @unchecked Sendable {
     let client = URLSession.shared
     let group = DispatchGroup()
 

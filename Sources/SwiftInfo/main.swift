@@ -5,7 +5,7 @@ import SwiftInfoCore
 let task = Process()
 
 struct Swiftinfo: ParsableCommand {
-    static var configuration = CommandConfiguration(
+    static let configuration = CommandConfiguration(
         abstract: "Swiftinfo 2.5.1",
         subcommands: []
     )
@@ -24,7 +24,7 @@ struct Swiftinfo: ParsableCommand {
     @Flag(name: .shortAndLong, help: "Logs SourceKit requests to the console.")
     var printSourcekit = false
 
-    @Argument(parsing: .unconditionalRemaining, help: "Any additional arguments that you would like your Infofile.swift to receive. These arguments can be retrieved in your Infofile through CommandLine's APIs to customize your runs.")
+    @Argument(parsing: .captureForPassthrough, help: "Any additional arguments that you would like your Infofile.swift to receive. These arguments can be retrieved in your Infofile through CommandLine's APIs to customize your runs.")
     var arguments: [String] = []
 
     mutating func run() throws {
